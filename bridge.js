@@ -126,6 +126,10 @@ controlpage.onAlert=function(msg){
 			page.viewportSize = {width:request[3], height:request[4]}
 			respond([id,cmdId,'pageSetViewportDone']);
 			break;
+		case 'pageClipRect':
+                	page.clipRect = { width: request[3], height: request[4], top: request[5], left: request[6] }
+                	respond([id, cmdId, 'pageClipRectSet']);
+                	break;
 		default:
 			console.error('unrecognized request:'+request);
 			break;
