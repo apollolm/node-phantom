@@ -131,7 +131,10 @@ module.exports={
 							},
 							setViewport: function(viewport, callback) {
 								request(socket, [id, 'pageSetViewport', viewport.width, viewport.height], callbackOrDummy(callback));
-							}
+							},
+                                			setClipRect: function (clipRect, fn, callback) {
+                                    				request(socket, [id, 'pageSetClipRect', clipRect.width, clipRect.height, clipRect.top, clipRect.left], callbackOrDummy(callback));
+                                			}
 						};
 						pages[id] = pageProxy;
 						cmds[cmdId].cb(null,pageProxy);
